@@ -10,7 +10,8 @@
 	<class>fr.adaming.entities.Client</class>
 	<class>fr.adaming.entities.Categorie</class>
 	<class>fr.adaming.entities.Commande</class>
-
+	<class>fr.adaming.entities.Admin</class>
+	
 	
 	<!-- Spécifications des propriétés hibernate -->
 	<properties>

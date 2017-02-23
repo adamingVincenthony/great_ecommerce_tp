@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import fr.adaming.entities.Categorie;
@@ -13,7 +14,7 @@ import fr.adaming.entities.Categorie;
 public class MagasinDaoImpl implements IMagasinDao {
 
 	
-	@EJB
+	@PersistenceContext(unitName="TP_COMMERCE")
 	EntityManager em;
 	
 	//Récupérer toutes les catégories.

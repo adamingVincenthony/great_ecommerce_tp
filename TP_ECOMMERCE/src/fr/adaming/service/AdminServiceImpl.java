@@ -12,7 +12,6 @@ import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Produit;
 
 
-@Local(fr.adaming.service.IAdminService.class)
 public class AdminServiceImpl implements IAdminService{
 
 	@EJB

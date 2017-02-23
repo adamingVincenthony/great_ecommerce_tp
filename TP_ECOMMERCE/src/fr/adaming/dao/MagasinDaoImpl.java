@@ -14,7 +14,7 @@ import fr.adaming.entities.Categorie;
 public class MagasinDaoImpl implements IMagasinDao {
 
 	
-	@PersistenceContext(unitName="TP_COMMERCE")
+	@PersistenceContext(unitName="TP_ECOMMERCE")
 	EntityManager em;
 	
 	//Récupérer toutes les catégories.

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
+import javax.ejb.Stateful;
 
 import fr.adaming.dao.AdminDaoImpl;
 import fr.adaming.dao.IAdminDao;
@@ -11,7 +12,7 @@ import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Produit;
 
-
+@Stateful
 public class AdminServiceImpl implements IAdminService{
 
 	@EJB

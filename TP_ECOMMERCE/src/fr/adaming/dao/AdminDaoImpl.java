@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -10,10 +11,11 @@ import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Produit;
 
+@Stateless
 public class AdminDaoImpl implements IAdminDao{
 
 	
-	@PersistenceContext(unitName="TP_COMMERCE")
+	@PersistenceContext(unitName="TP_ECOMMERCE")
 	EntityManager em;
 	
 	@Override

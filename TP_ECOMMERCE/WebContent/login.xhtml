@@ -1,0 +1,37 @@
+<!DOCTYPE html >
+
+<!-- Les xml namespace donnent les bibliotheques de balises -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<title>login</title>
+</h:head>
+
+<h:body>
+<div align="center">
+		<h1 style="color: lightsalmon">Veuillez vous connecter</h1>
+		<h:form>
+			<h:panelGrid columns="3">
+Nom:
+<h:inputText id="nom_id" value="#{adminMB.admin.nom}"
+					required="true" label="nom"></h:inputText>
+				<h:message for="nom_id" style="color: vermillon"></h:message>
+Password:
+<h:inputText id="password_id"
+					value="#{adminMB.admin.mdp}" required="true"
+					label="password"></h:inputText>
+				<h:message for="password_id" style="color: vermillon"></h:message>
+
+			</h:panelGrid>
+			<h:commandButton value="Se connecter"
+				action="#{adminMB.connecter}" />
+			<h:messages style="color: red" />
+		</h:form>
+	</div>
+</h:body>
+
+</html>

@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import fr.adaming.entities.Categorie;
 
 @Stateless
-public class MagasinServiceImpl implements IMagasinDao {
+public class MagasinDaoImpl implements IMagasinDao {
 
 	
 	@EJB

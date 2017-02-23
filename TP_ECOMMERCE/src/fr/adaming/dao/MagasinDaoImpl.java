@@ -24,5 +24,5 @@ public class MagasinDaoImpl implements IMagasinDao {
 		return query.getResultList();
 	}
 
-	
+	// ggggggggg
 }

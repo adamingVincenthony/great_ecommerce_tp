@@ -51,8 +51,8 @@
 						style="width:125px">
 						<f:selectItem itemLabel="Select One" itemValue="" />
 						<ui:repeat var="cat" value="#{magasinMB.listeCategories}">
-						<f:selectItem itemLabel="#{cat.nomCategorie}" itemValue="#{cat.nomCategorie}"></f:selectItem>
-						
+						<f:selectItem itemLabel="#{cat.nomCategorie}" itemValue="#{cat.nomCategorie}">
+						</f:selectItem>
 						</ui:repeat>
 					</p:selectOneMenu>
 			</div>

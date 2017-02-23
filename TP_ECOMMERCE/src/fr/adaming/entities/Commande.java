@@ -15,7 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="commandes")
+@Table(name = "commandes")
 public class Commande implements Serializable {
 
 	/**
@@ -24,37 +24,34 @@ public class Commande implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_cmd")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_cmd")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idCommande;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
-	
-	@ManyToOne
-	@JoinColumn(name="fk_cl")
-	private Client ClientCommande;
 
-	
-	//Constructors
+	@ManyToOne
+	@JoinColumn(name = "fk_cl")
+	private Client clientCommande;
+
+	// Constructors
 	public Commande() {
 		super();
 	}
 
-	public Commande(Date dateCommande, Client clientCommande) {
+	public Commande(Date dateCommande) {
 		super();
 		this.dateCommande = dateCommande;
-		ClientCommande = clientCommande;
 	}
 
-	public Commande(long idCommande, Date dateCommande, Client clientCommande) {
+	public Commande(long idCommande, Date dateCommande) {
 		super();
 		this.idCommande = idCommande;
 		this.dateCommande = dateCommande;
-		ClientCommande = clientCommande;
 	}
 
-	//Getters and Setters
+	// Getters and Setters
 	public long getIdCommande() {
 		return idCommande;
 	}
@@ -72,13 +69,16 @@ public class Commande implements Serializable {
 	}
 
 	public Client getClientCommande() {
-		return ClientCommande;
+		return clientCommande;
 	}
 
 	public void setClientCommande(Client clientCommande) {
-		ClientCommande = clientCommande;
+		this.clientCommande = clientCommande;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Commande [idCommande=" + idCommande + ", dateCommande=" + dateCommande + "]";
+	}
+
 }

@@ -31,7 +31,7 @@ public class Client implements Serializable {
 	private String email;
 	private String tel;
 	
-	@OneToMany(mappedBy="ClientCommande")
+	@OneToMany(mappedBy="clientCommande")
 	private List<Commande> listeCommandes;
 	
 	//Constructors
@@ -104,6 +104,12 @@ public class Client implements Serializable {
 
 	public void setListeCommandes(List<Commande> listeCommandes) {
 		this.listeCommandes = listeCommandes;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [idClient=" + idClient + ", NomClient=" + NomClient + ", adresse=" + adresse + ", email=" + email
+				+ ", tel=" + tel + "]";
 	}
 
 	

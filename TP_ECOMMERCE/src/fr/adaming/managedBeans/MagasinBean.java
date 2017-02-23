@@ -23,7 +23,7 @@ public class MagasinBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
-	IMagasinService magasinService;
+	private IMagasinService magasinService;
 	
 	private List<Categorie> listeCategories;
 
@@ -40,7 +40,7 @@ public class MagasinBean implements Serializable {
 	}
 	
 	public void getAllCategoriesMB(){
-		
+		System.out.println("je suis dans le MB");
 		this.listeCategories=magasinService.getAllCategories();
 	//	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("categoriesListe", this.listeCategories);
 		

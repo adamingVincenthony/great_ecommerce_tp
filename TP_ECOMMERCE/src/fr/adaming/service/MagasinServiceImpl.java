@@ -7,6 +7,7 @@ import javax.ejb.Stateful;
 
 import fr.adaming.dao.IMagasinDao;
 import fr.adaming.entities.Categorie;
+import fr.adaming.entities.Produit;
 
 @Stateful
 public class MagasinServiceImpl implements IMagasinService {
@@ -15,8 +16,18 @@ public class MagasinServiceImpl implements IMagasinService {
 	IMagasinDao magasinDao;
 	
 	@Override
-	public List<Categorie> getAllCategories() {
+	public List<Categorie> getAllCategoriesService() {
 		return magasinDao.getAllCategories();
+	}
+
+	@Override
+	public List<Produit> getAllProduitsByIdCategorieService(long id_cat) {
+		return magasinDao.getAllProduitsByIdCategorie(id_cat);
+	}
+
+	@Override
+	public List<Produit> getAllProduitsByKeyWordService(String keyWord) {
+		return magasinDao.getAllProduitsByKeyWord(keyWord);
 	}
 
 }

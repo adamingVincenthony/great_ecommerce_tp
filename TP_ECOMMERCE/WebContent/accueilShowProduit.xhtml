@@ -1,0 +1,80 @@
+<!DOCTYPE html >
+
+<!-- Les xml namespace donnent les bibliotheques de balises -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Accueil</title>
+	
+		<!-- insertion des libraries perso -->
+	<h:outputScript library="js" name="commerceJs.js"></h:outputScript>
+	
+</h:head>
+
+<h:body>
+
+	<!-- Barre de Menu -->
+	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
+		<div class="w3-container">
+			<h2 class="menu">Menu</h2>
+		</div>
+		<a href="javascript:void(0)" class="tablink w3-green"
+			onclick="openLink(event, 'home')">Home</a> <a
+			href="javascript:void(0)" class="tablink"
+			onclick="openLink(event, 'categorie')">Produit par catégorie</a> <a
+			href="javascript:void(0)" class="tablink"
+			onclick="openLink(event, 'recherche')">Chercher un produit</a> <a
+			href="javascript:void(0)" class="tablink"
+			onclick="openLink(event, 'panier')">Acceder au panier</a>
+	</nav>
+
+
+	<div style="margin-left: 130px">
+
+
+		<div id="ShowProd" class="section w3-animate-left">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>
+						Catégorie :
+						<h:outputText value="#{sessionScope.categorieSes.nomCategorie}"></h:outputText>
+					</h2>
+				</div>
+
+				<h:form>
+
+					<p:dataTable var="prod" value="#{sessionScope.produitListe}">
+						<p:column headerText="Désignation">
+							<h:outputText value="#{prod.designation}" />
+						</p:column>
+
+						<p:column headerText="Déscription">
+							<h:outputText value="#{prod.description}" />
+						</p:column>
+
+						<p:column headerText="Prix">
+							<h:outputText value="#{prod.prix}" />
+						</p:column>
+
+					</p:dataTable>
+
+				</h:form>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+</h:body>
+
+</html>

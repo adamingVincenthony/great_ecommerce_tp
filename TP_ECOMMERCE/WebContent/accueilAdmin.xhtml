@@ -33,105 +33,126 @@
 			onclick="openLink(event, 'suppression')">Supprimer un produit</a> <a
 			href="javascript:void(0)" class="tablink"
 			onclick="openLink(event, 'modification')">Modifier un produit</a>
-		<h:form>
+	</nav>
 
-			<div style="margin-left: 130px">
 
-				<div id="ajout" class="section w3-animate-left"
-					style="display: none">
-					<div class="form">
-						<div class="w3-container w3-green">
-							<h2>Ajouter un produit :</h2>
-						</div>
-						<h:form styleClass="w3-container">
-							<p>
-								<h:outputText styleClass="w3-text-green" value="Désignation :"></h:outputText>
-								<!-- <p:inputText styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<h:outputText styleClass="w3-text-green" value="Déscription :"></h:outputText>
-								<!-- <p:inputText styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<h:outputText styleClass="w3-text-green" value="Prix :"></h:outputText>
-								<!-- <p:input styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<h:outputText styleClass="w3-text-green" value="Quantité :"></h:outputText>
-								<!-- <p:inputText styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<!-- <h:commandButton styleClass="w3-btn w3-green" action="#{}" value="Valider"></h:commandButton> -->
-							</p>
-						</h:form>
-					</div>
+
+
+	<div style="margin-left: 130px">
+
+		<div id="home" class="section w3-animate-left" style="display: none">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>Liste des Catégories</h2>
 				</div>
-
-
-				<div id="suppression" class="section w3-animate-left"
-					style="display: none">
-					<div class="form">
-						<div class="w3-container w3-green">
-							<h2>Supprimer un produit :</h2>
-						</div>
-						<h:form styleClass="w3-container">
-							<p>
-								<h:outputText styleClass="w3-text-green" value="Désignation :"></h:outputText>
-								<!-- <p:inputText styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<h:outputText styleClass="w3-text-green"
-									value="ID du produit à supprimer :"></h:outputText>
-								<!-- <p:inputText styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<!-- <h:commandButton styleClass="w3-btn w3-green" action="#{}" value="Valider"></h:commandButton> -->
-							</p>
-						</h:form>
-					</div>
-				</div>
-
-
-				<div id="modification" class="section w3-animate-left"
-					style="display: none">
-					<div class="form">
-						<div class="w3-container w3-green">
-							<h2>Modifier un produit :</h2>
-						</div>
-						<h:form styleClass="w3-container">
-							<p>
-								<h:outputText styleClass="w3-text-green" value="Désignation :"></h:outputText>
-								<!-- <p:inputText styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<h:outputText styleClass="w3-text-green" value="Déscription :"></h:outputText>
-								<!-- <p:inputText styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<h:outputText styleClass="w3-text-green" value="Prix :"></h:outputText>
-								<!-- <p:input styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<h:outputText styleClass="w3-text-green" value="Quantité :"></h:outputText>
-								<!-- <p:inputText styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<h:outputText styleClass="w3-text-green"
-									value="ID du produit à modifier :"></h:outputText>
-								<!-- <p:inputText styleClass="w3-input w3-border w3-sand" value="#{}"></p:inputText> -->
-							</p>
-							<p>
-								<!-- <h:commandButton styleClass="w3-btn w3-green" action="#{}" value="Valider"></h:commandButton> -->
-							</p>
-						</h:form>
-					</div>
-				</div>
-
-
-
-
-
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					<p:outputLabel for="console" value="Choisissez une catégories :" />
+					<p:selectOneMenu id="console" value="#{magasinMB.listeCategories}"
+						style="width:125px">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<ui:repeat var="cat" value="#{magasinMB.listeCategories}">
+						<f:selectItem itemLabel="#{cat.nomCategorie}" itemValue="#{cat.nomCategorie}"></f:selectItem>
+						
+						</ui:repeat>
+					</p:selectOneMenu>
 			</div>
+		</div>
+
+
+		<div id="ajout" class="section w3-animate-left" style="display: none">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>Ajouter un produit :</h2>
+				</div>
+				<h:form styleClass="w3-container">
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Désignation :"></h:outputText>
+						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Déscription :"></h:outputText>
+						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Prix :"></h:outputText>
+						<!-- <p:input styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Quantité :"></h:outputText>
+						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<!-- <h:commandButton styleClass="w3-btn w3-green" value="Valider"></h:commandButton> -->
+					</p>
+				</h:form>
+			</div>
+		</div>
+
+
+		<div id="suppression" class="section w3-animate-left"
+			style="display: none">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>Supprimer un produit :</h2>
+				</div>
+				<h:form styleClass="w3-container">
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Désignation :"></h:outputText>
+						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green"
+							value="ID du produit à supprimer :"></h:outputText>
+						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<!-- <h:commandButton styleClass="w3-btn w3-green" value="Valider"></h:commandButton> -->
+					</p>
+				</h:form>
+			</div>
+		</div>
+
+
+		<div id="modification" class="section w3-animate-left"
+			style="display: none">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>Modifier un produit :</h2>
+				</div>
+				<h:form styleClass="w3-container">
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Désignation :"></h:outputText>
+						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Déscription :"></h:outputText>
+						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Prix :"></h:outputText>
+						<!-- <p:input styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Quantité :"></h:outputText>
+						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green"
+							value="ID du produit à modifier :"></h:outputText>
+						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
+					</p>
+					<p>
+						<!-- <h:commandButton styleClass="w3-btn w3-green"  value="Valider"></h:commandButton> -->
+					</p>
+				</h:form>
+			</div>
+		</div>
+
+
+
+
+
+	</div>
 </h:body>
 
 </html>

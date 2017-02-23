@@ -1,12 +1,17 @@
 package fr.adaming.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -30,6 +35,15 @@ public class Produit implements Serializable{
 	private int quantite;
 	private boolean selectionne;
 
+	
+	@ManyToOne
+	@JoinColumn(name="categorie_id_fk", referencedColumnName="id_cat")
+	private Categorie categorieProduit;
+
+	
+	@ManyToMany(mappedBy="produitsCommande")
+	private List<Commande> commandeProduit;
+	
 	//Constructeurs vide, avec et sans id
 	public Produit() {
 		super();
@@ -110,6 +124,22 @@ public class Produit implements Serializable{
 	
 
 	
+	public Categorie getCategorieProduit() {
+		return categorieProduit;
+	}
+
+	public void setCategorieProduit(Categorie categorieProduit) {
+		this.categorieProduit = categorieProduit;
+	}
+
+	public List<Commande> getCommandeProduit() {
+		return commandeProduit;
+	}
+
+	public void setCommandeProduit(List<Commande> commandeProduit) {
+		this.commandeProduit = commandeProduit;
+	}
+
 	//autres méthodes
 	@Override
 	public String toString() {

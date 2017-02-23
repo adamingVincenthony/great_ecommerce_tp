@@ -13,6 +13,7 @@ public class LigneCommande implements Serializable{
 	
 	private int quantite;
 	private double prix;
+	
 	public LigneCommande() {
 		super();
 	}

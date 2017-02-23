@@ -3,6 +3,7 @@ package fr.adaming.managedBeans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -39,6 +40,7 @@ public class MagasinBean implements Serializable {
 		this.listeCategories = listeCategories;
 	}
 	
+	@PostConstruct
 	public void getAllCategoriesMB(){
 		System.out.println("je suis dans le MB");
 		this.listeCategories=magasinService.getAllCategories();

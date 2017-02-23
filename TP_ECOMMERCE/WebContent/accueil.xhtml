@@ -49,12 +49,7 @@
 					
 					<p:selectOneMenu id="console" style="width:125px">
 						<f:selectItem itemLabel="Select One" itemValue="" />
-						
-						<ui:repeat var="cat" value="#{magasinMB.listeCategories}">
-							<f:selectItem itemLabel="#{cat.nomCategorie}"
-								itemValue="toto">
-							</f:selectItem>
-						</ui:repeat>
+						<f:selectItems value="#{magasinMB.listeCategories}"/>
 						
 					</p:selectOneMenu>
 					

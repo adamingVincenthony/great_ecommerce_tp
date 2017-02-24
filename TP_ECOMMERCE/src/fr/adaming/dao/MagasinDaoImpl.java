@@ -28,7 +28,7 @@ public class MagasinDaoImpl implements IMagasinDao {
 
 	@Override
 	public List<Produit> getAllProduitsByIdCategorie(long id_cat) {
-		String req = "select p from Produit p where p.categorieProduit.id_cat=:idProduit";
+		String req = "select p from Produit p where p.categorieProduit.idCategorie=:idProduit";
 		Query query = em.createQuery(req);
 		query.setParameter("idProduit", id_cat);
 		return query.getResultList();

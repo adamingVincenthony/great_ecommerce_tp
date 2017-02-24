@@ -10,17 +10,13 @@
 
 <h:head>
 	<title>Accueil</title>
-
-	<!-- insertion des libraries perso -->
-	<h:outputScript library="js" name="commerceJs.js"></h:outputScript>
-	<h:outputStylesheet library="css" name="w3.css"></h:outputStylesheet>
-	<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
-
 </h:head>
+
+<h:outputStylesheet library="css" name="w3.css"></h:outputStylesheet>
+<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
 
 <h:body>
 
-	<!-- Barre de Menu -->
 	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
 		<div class="w3-container">
 			<h2 class="menu">Menu</h2>
@@ -35,43 +31,30 @@
 
 	<div style="margin-left: 130px">
 
-
-		<div id="ShowProd" class="section w3-animate-left">
+		<div id="categorie" class="section w3-animate-left">
 			<div class="form">
 				<div class="w3-container w3-green">
-					<h2>
-						Catégorie :
-						<h:outputText value="#{sessionScope.categorieSes.nomCategorie}"></h:outputText>
-					</h2>
+					<h2>Liste des Catégories</h2>
 				</div>
-
 				<h:form>
+					<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+						<p:outputLabel for="console" value="Choisissez une catégories :" />
 
-					<p:dataTable var="prod" value="#{sessionScope.produitListe}">
-						<p:column headerText="Désignation">
-							<h:outputText value="#{prod.designation}" />
-						</p:column>
+						<p:selectOneMenu id="console" style="width:125px"
+							value="#{magasinMB.categorie.nomCategorie}">
+							<f:selectItem itemLabel="Categorie :" itemValue="" />
+							<f:selectItems value="#{magasinMB.listeNomCat}" var="nCat"
+								itemLabel="#{nCat}" itemValue="#{nCat}" />
+						</p:selectOneMenu>
 
-						<p:column headerText="Déscription">
-							<h:outputText value="#{prod.description}" />
-						</p:column>
-
-						<p:column headerText="Prix">
-							<h:outputText value="#{prod.prix}" />
-						</p:column>
-
-					</p:dataTable>
-
+					</h:panelGrid>
+					<h:commandButton value="Aller !"
+						action="#{magasinMB.goToCategorie}"></h:commandButton>
 				</h:form>
 			</div>
 		</div>
 
-
-
 	</div>
-
-
-
 
 
 </h:body>

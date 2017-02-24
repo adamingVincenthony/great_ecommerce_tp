@@ -13,122 +13,27 @@
 
 	<!-- insertion des libraries perso -->
 	<h:outputScript library="js" name="commerceJs.js"></h:outputScript>
+	<h:outputStylesheet library="css" name="w3.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
 
 </h:head>
 
 <h:body>
-	<h1>TEST</h1>
-
 
 	<!-- Barre de Menu -->
-	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
+	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px ; margin-top: 50px;">
 		<div class="w3-container">
 			<h2 class="menu">Menu</h2>
 		</div>
-		<a href="javascript:void(0)" class="tablink w3-green"
-			onclick="openLink(event, 'home')">Home</a> <a
-			href="javascript:void(0)" class="tablink"
-			onclick="openLink(event, 'categorie')">Produit par catégorie</a> <a
-			href="javascript:void(0)" class="tablink"
-			onclick="openLink(event, 'recherche')">Chercher un produit</a> <a
-			href="javascript:void(0)" class="tablink"
-			onclick="openLink(event, 'panier')">Acceder au panier</a>
+		<a href="accueil.xhtml" class="tablink w3-green">Home</a> <a
+			href="searchCategorie.xhtml" class="tablink">Produit par
+			catégorie</a> <a href="searchProduitKW.xhtml" class="tablink">Chercher
+			un produit</a> <a href="panier.xhtml" class="tablink">Acceder au
+			panier</a>
 	</nav>
 
 
-	<div style="margin-left: 130px">
-
-		<div id="categorie" class="section w3-animate-left"
-			style="display: none">
-			<div class="form">
-				<div class="w3-container w3-green">
-					<h2>Liste des Catégories</h2>
-				</div>
-				<h:form>
-					<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-						<p:outputLabel for="console" value="Choisissez une catégories :" />
-
-						<p:selectOneMenu id="console" style="width:125px"
-							value="#{magasinMB.categorie.nomCategorie}">
-							<f:selectItem itemLabel="Categorie :" itemValue="" />
-							<f:selectItems value="#{magasinMB.listeNomCat}"
-								itemValue="#{magasinMB.listeNomCat}" />
-						</p:selectOneMenu>
-
-					</h:panelGrid>
-					<h:commandButton value="Aller !"
-						action="#{magasinMB.goToCategorie}"></h:commandButton>
-				</h:form>
-			</div>
-		</div>
-
-
-		<div id="recherche" class="section w3-animate-left"
-			style="display: none">
-			<div class="form">
-				<div class="w3-container w3-green">
-					<h2>Trouver un produit :</h2>
-				</div>
-				<h:form styleClass="w3-container">
-					<p>
-						<h:outputText styleClass="w3-text-green" value="Mot Clé :"></h:outputText>
-						<p:inputText styleClass="w3-input w3-border w3-sand"
-							value=" #{magasinMB.keyWord}"></p:inputText>
-					</p>
-					<p>
-						<h:commandButton styleClass="w3-btn w3-green" value="Go !"
-							action="#{magasinMB.getAllProduitsByKeyWordMB}" update="@all"></h:commandButton>
-					</p>
-				</h:form>
-
-				<h:form>
-
-					<p:dataTable var="prod" value="#{sessionScope.produitListeKW}">
-						<p:column headerText="Désignation">
-							<h:outputText value="#{prod.designation}" />
-						</p:column>
-
-						<p:column headerText="Déscription">
-							<h:outputText value="#{prod.description}" />
-						</p:column>
-
-						<p:column headerText="Prix">
-							<h:outputText value="#{prod.prix}" />
-						</p:column>
-
-					</p:dataTable>
-
-				</h:form>
-
-			</div>
-		</div>
-
-
-		<div id="panier" class="section w3-animate-left" style="display: none">
-			<div class="form">
-				<div class="w3-container w3-green">
-					<h2>Votre panier :</h2>
-				</div>
-				<h:form styleClass="w3-container">
-					<p>
-						<h:outputText styleClass="w3-text-green" value="Désignation :"></h:outputText>
-						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
-					</p>
-					<p>
-						<h:outputText styleClass="w3-text-green"
-							value="ID du produit à supprimer :"></h:outputText>
-						<!-- <p:inputText styleClass="w3-input w3-border w3-sand" ></p:inputText> -->
-					</p>
-					<p>
-						<!-- <h:commandButton styleClass="w3-btn w3-green" value="Valider"></h:commandButton> -->
-					</p>
-				</h:form>
-			</div>
-		</div>
-
-
-
-	</div>
+	<div style="margin-left: 130px"></div>
 </h:body>
 
 </html>

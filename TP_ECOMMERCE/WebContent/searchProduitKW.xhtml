@@ -10,13 +10,10 @@
 
 <h:head>
 	<title>Accueil</title>
-
-	<!-- insertion des libraries perso -->
-	<h:outputScript library="js" name="commerceJs.js"></h:outputScript>
-	<h:outputStylesheet library="css" name="w3.css"></h:outputStylesheet>
-	<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
-
 </h:head>
+
+<h:outputStylesheet library="css" name="w3.css"></h:outputStylesheet>
+<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
 
 <h:body>
 
@@ -25,9 +22,9 @@
 		<div class="w3-container">
 			<h2 class="menu">Menu</h2>
 		</div>
-		<a href="accueil.xhtml" class="tablink">Home</a> <a
-			href="searchCategorie.xhtml" class="tablink w3-green">Produit par
-			catégorie</a> <a href="searchProduitKW.xhtml" class="tablink">Chercher
+		<a href="accueil.xhtml" class="tablink ">Home</a> <a
+			href="searchCategorie.xhtml" class="tablink">Produit par
+			catégorie</a> <a href="searchProduitKW.xhtml" class="tablink w3-green">Chercher
 			un produit</a> <a href="panier.xhtml" class="tablink">Acceder au
 			panier</a>
 	</nav>
@@ -35,19 +32,27 @@
 
 	<div style="margin-left: 130px">
 
-
-		<div id="ShowProd" class="section w3-animate-left">
+		<div id="recherche" class="section w3-animate-left">
 			<div class="form">
 				<div class="w3-container w3-green">
-					<h2>
-						Catégorie :
-						<h:outputText value="#{sessionScope.categorieSes.nomCategorie}"></h:outputText>
-					</h2>
+					<h2>Trouver un produit :</h2>
 				</div>
+				<h:form styleClass="w3-container">
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Mot Clé :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{magasinMB.keyWord}"></p:inputText>
+					</p>
+					<p>
+						<h:commandButton styleClass="w3-btn w3-green" value="Go !"
+							action="#{magasinMB.allProduitsByKeyWordMB}" update="idTab"></h:commandButton>
+					</p>
+				</h:form>
 
 				<h:form>
 
-					<p:dataTable var="prod" value="#{sessionScope.produitListe}">
+					<p:dataTable var="prod" value="#{sessionScope.produitListeKW}"
+						id="idTab">
 						<p:column headerText="Désignation">
 							<h:outputText value="#{prod.designation}" />
 						</p:column>
@@ -63,15 +68,11 @@
 					</p:dataTable>
 
 				</h:form>
+
 			</div>
 		</div>
 
-
-
 	</div>
-
-
-
 
 
 </h:body>

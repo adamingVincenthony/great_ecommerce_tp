@@ -1,0 +1,63 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: Times, serif;
+	font-size: large;
+	text-shadow: 3px 2px 5px #888888;
+	color: rgb(10, 40, 10);
+	
+}
+
+.header {
+	
+	padding-top: 20px;
+
+	width: 1500px;
+	padding-bottom: 10px;
+	background: linear-gradient(to right bottom, white 48%, green);
+	box-shadow: 5px 5px 5px #888888;
+}
+
+div h1 {
+	color: rgb(0, 100, 10);
+	font-family: Times, serif;
+	text-align: center;
+	font-weight: bold;
+}
+
+h2{
+	font-family: Times serif;
+}
+
+.decoBut{
+	border: none;
+	background-color: white;
+	text-decoration: none;
+	text-shadow: 3px 2px 5px #888888;
+	color: rgb(10, 40, 10);
+	cursor: pointer;
+} 
+	
+
+.menu{
+	color: rgb(0, 100, 10);
+	font-family: Times, serif;
+	text-align: center;
+	font-weight: bold;
+}
+
+div h6 {
+	font-family: cursive;
+	text-align: center;
+	padding-left: 300px;
+}
+
+.section{
+	width: 970px;
+	margin-top: 50px;
+}
+
+.form{
+	margin-left: 30px;
+	margin-top: 50px;
+}

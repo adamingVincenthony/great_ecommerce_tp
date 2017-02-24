@@ -37,7 +37,7 @@ public class MagasinBean implements Serializable {
 
 	private List<Produit> listeProduitsKW;
 
-	private String keyWord;
+	private String keyWord = null;
 
 	public MagasinBean() {
 		super();
@@ -47,7 +47,7 @@ public class MagasinBean implements Serializable {
 		categorie = new Categorie();
 		listeProduits = new ArrayList<Produit>();
 		listeProduitsKW = new ArrayList<Produit>();
-		keyWord = null;
+		
 	}
 
 	public List<Categorie> getListeCategories() {
@@ -124,7 +124,7 @@ public class MagasinBean implements Serializable {
 		for (Categorie cat : this.listeCategories) {
 			System.out.println("je suis dans le MB3" + cat.getNomCategorie());
 			this.listeNomCat.add(cat.getNomCategorie());
-			System.out.println("je suis dans le MB4");
+			System.out.println("je suis dans le MB4 " + cat.getNomCategorie());
 			this.mapCategorie.put(cat.getNomCategorie(), cat);
 		}
 		System.out.println("je suis dans le MB4");
@@ -137,8 +137,9 @@ public class MagasinBean implements Serializable {
 	public String goToCategorie() {
 
 		System.out.println(this.categorie.getNomCategorie());
-
+		System.out.println(this.mapCategorie.size());
 		this.categorie = this.mapCategorie.get(this.categorie.getNomCategorie());
+		System.out.println(this.categorie);
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("categorieSes", this.categorie);
 
 		this.listeProduits = magasinService.getAllProduitsByIdCategorieService(this.categorie.getIdCategorie());
@@ -147,10 +148,12 @@ public class MagasinBean implements Serializable {
 		return "goToCategorie";
 	}
 
-	public void getAllProduitsByKeyWordMB() {
-
-		StringBuilder keyWordBuild= new StringBuilder("%"+keyWord+"%");
+	public void allProduitsByKeyWordMB() {
+		System.out.println("ds methode KW");
+		
+		StringBuilder keyWordBuild = new StringBuilder("%" + keyWord + "%");
 		String keyWordSend = keyWordBuild.toString();
+		
 		System.out.println(keyWordSend);
 		this.listeProduitsKW = magasinService.getAllProduitsByKeyWordService(keyWordSend);
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("produitListeKW", listeProduitsKW);

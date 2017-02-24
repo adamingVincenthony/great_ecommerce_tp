@@ -16,7 +16,7 @@
 	</navigation-rule>
 
 	<navigation-rule>
-		<from-view-id>/accueil.xhtml</from-view-id>
+		<from-view-id>/searchCategorie.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>goToCategorie</from-outcome>
 			<to-view-id>/accueilShowProduit.xhtml</to-view-id>

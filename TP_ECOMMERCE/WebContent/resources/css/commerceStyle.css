@@ -43,7 +43,8 @@ h2{
 	color: rgb(0, 100, 10);
 	font-family: Times, serif;
 	text-align: center;
-	font-weight: bold;
+	font-weight: bold ;
+	
 }
 
 div h6 {
@@ -60,4 +61,8 @@ div h6 {
 .form{
 	margin-left: 30px;
 	margin-top: 50px;
+}
+
+.dataTableStyle{
+	text-align: center;	
 }

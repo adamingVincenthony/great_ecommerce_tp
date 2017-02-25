@@ -34,10 +34,14 @@ public class MagasinBean implements Serializable {
 	private Categorie categorie;
 
 	private List<Produit> listeProduits;
-
 	private List<Produit> listeProduitsKW;
-
+	private Map<String, Produit> panier;
+	private Produit produit;
+	
 	private String keyWord = null;
+	private int qtAjoute=0;
+	
+	
 
 	public MagasinBean() {
 		super();
@@ -47,7 +51,8 @@ public class MagasinBean implements Serializable {
 		categorie = new Categorie();
 		listeProduits = new ArrayList<Produit>();
 		listeProduitsKW = new ArrayList<Produit>();
-		
+		panier = new HashMap<String,Produit>();
+		produit= new Produit();
 	}
 
 	public List<Categorie> getListeCategories() {
@@ -113,6 +118,33 @@ public class MagasinBean implements Serializable {
 	public void setKeyWord(String keyWord) {
 		this.keyWord = keyWord;
 	}
+	
+
+	public Map<String, Produit> getPanier() {
+		return panier;
+	}
+
+	public void setPanier(Map<String, Produit> panier) {
+		this.panier = panier;
+	}
+	
+
+	public Produit getProduit() {
+		return produit;
+	}
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
+
+	
+	public int getQtAjoute() {
+		return qtAjoute;
+	}
+
+	public void setQtAjoute(int qtAjoute) {
+		this.qtAjoute = qtAjoute;
+	}
 
 	@PostConstruct
 	public void getAllCategoriesMB() {
@@ -158,5 +190,47 @@ public class MagasinBean implements Serializable {
 		this.listeProduitsKW = magasinService.getAllProduitsByKeyWordService(keyWordSend);
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("produitListeKW", listeProduitsKW);
 
+	}
+	
+	public void ajouterPanier(){
+		System.out.println(this.produit);
+		
+		if(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("mapPanier")!=null){
+		System.out.println("panier deja ds session");
+		this.panier=(Map<String, Produit>) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("mapPanier");
+		System.out.println(this.panier.get(this.produit.getDesignation()).getQuantite());
+			if(this.panier.containsKey(this.produit.getDesignation())){
+				System.out.println("produit deja dans panier");
+				int newQuantite= (this.panier.get(this.produit.getDesignation())).getQuantite() + qtAjoute;
+				
+				System.out.println("nouvelle quantité: "+newQuantite);
+				this.produit.setQuantite(newQuantite);
+				
+				this.panier.get(this.produit.getDesignation()).setQuantite(newQuantite);; 
+				
+			}else{
+				System.out.println("produit nouveau ds panier");
+				this.produit.setQuantite(qtAjoute);
+				this.panier.put(this.produit.getDesignation(), this.produit);
+			}
+		
+		}else{
+			
+		System.out.println("pas de panier existant -> vient d'etre créé");
+		this.produit.setQuantite(qtAjoute);
+		this.panier.put(this.produit.getDesignation(), this.produit);
+		}
+		System.out.println(this.panier.get(this.produit.getDesignation()).getQuantite());
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("mapPanier", this.panier);
+		
+		
+	}
+	
+	public String goToProduit(){
+		System.out.println(this.produit);
+		
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("produitSes", this.produit);
+		
+		return "goToProduit";
 	}
 }

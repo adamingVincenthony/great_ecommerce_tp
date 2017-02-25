@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+
+<!-- Les xml namespace donnent les bibliotheques de balises -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Accueil</title>
+</h:head>
+
+<h:outputStylesheet library="css" name="w3.css"></h:outputStylesheet>
+<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
+
+<h:body>
+
+	<!-- Barre de Menu -->
+	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
+		<div class="w3-container">
+			<h2 class="menu">Menu</h2>
+		</div>
+		<a href="accueil.xhtml" class="tablink ">Home</a> <a
+			href="searchCategorie.xhtml" class="tablink">Produit par
+			catégorie</a> <a href="searchProduitKW.xhtml" class="tablink w3-green">Chercher
+			un produit</a> <a href="panier.xhtml" class="tablink">Acceder au
+			panier</a>
+	</nav>
+
+
+	<div style="margin-left: 130px"></div>
+	
+	<div id="ShowProd" class="section w3-animate-left">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>
+						<h:outputText value="#{sessionScope.produitSes.designation}"></h:outputText>
+					</h2>
+				</div>
+				<div class="w3-container w3-sand">
+				
+				</div>
+				
+			</div>
+		</div>
+	
+
+</h:body>
+
+</html>

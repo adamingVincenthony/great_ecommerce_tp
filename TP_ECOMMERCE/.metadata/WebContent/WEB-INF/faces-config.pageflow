@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14878456501860" configfile="/TP_ECOMMERCE/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="122" y="178" id="pf14878807807500" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" outlinks="pf14878807807511 pf14878807807512" inlinks="pf14878807807512" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" x="338" y="178" id="pf14878807807513" referenceLink="//@navigationRule.1/@fromViewId|" inlinks="pf14878807807511" path="/accueil.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="searchCategorie.xhtml" id="pf14879403854760" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14879403854761" path="/searchCategorie.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueilShowProduit.xhtml" id="pf14879403854762" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14879403854761" path="/accueilShowProduit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" x="338" y="178" id="pf14878807807513" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14878807807511" path="/accueil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="searchCategorie.xhtml" id="pf14879403854760" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14879403854761" path="/searchCategorie.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueilShowProduit.xhtml" id="pf14879403854762" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14879403854761" path="/accueilShowProduit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*.xhtml" id="pf14880443106000" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14880443106001" path="*.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pageProduit.xhtml" id="pf14880443106002" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14880443106001" path="/pageProduit.xhtml"/>
   <links id="pf14878807807511" target="pf14878807807513" source="pf14878807807500" outcome="succes"/>
   <links id="pf14878807807512" target="pf14878807807500" source="pf14878807807500" outcome="echec">
     <bendPoints d1Height="-36" d2Height="-36"/>
@@ -11,4 +13,5 @@
     <bendPoints d1Width="-64" d2Width="-64"/>
   </links>
   <links id="pf14879403854761" target="pf14879403854762" source="pf14879403854760" outcome="goToCategorie"/>
+  <links id="pf14880443106001" target="pf14880443106002" source="pf14880443106000" outcome="goToProduit"/>
 </pageflow:Pageflow>

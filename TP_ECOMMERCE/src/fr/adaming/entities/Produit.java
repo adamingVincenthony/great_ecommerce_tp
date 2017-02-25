@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="commande")
+@Table(name="produits")
 public class Produit implements Serializable{
 
 	
@@ -49,6 +49,15 @@ public class Produit implements Serializable{
 		super();
 	}
 
+	public Produit(String designation, String description, double prix, Categorie categorieProduit) {
+		super();
+		this.designation = designation;
+		this.description = description;
+		this.prix = prix;
+		this.categorieProduit=categorieProduit;
+		
+	}
+	
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne) {
 		super();
 		this.designation = designation;

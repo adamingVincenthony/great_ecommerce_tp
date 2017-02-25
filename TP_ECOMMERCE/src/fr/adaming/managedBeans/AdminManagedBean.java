@@ -25,15 +25,20 @@ public class AdminManagedBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Admin admin;
+	private Produit produit;
+	private Categorie categorie;
 	
 	@EJB
 	IAdminService adminService=new AdminServiceImpl();
+	
 	
 	List<Produit> listeP;
 	List<Categorie> listeC;
 
 	public AdminManagedBean() {
 		this.admin=new Admin();
+		this.setProduit(new Produit());
+		this.setCategorie(new Categorie());
 	}
 
 	public Admin getAdmin() {
@@ -78,4 +83,40 @@ public class AdminManagedBean implements Serializable{
 		}
 	}
 
+	public String ajouterProduit(Produit p){
+		adminService.ajouterProduitService(p);
+		return "ajouterProduit";
+	}
+	public String ajouterCategorie (Categorie c){
+		adminService.ajouterCategorieService(c);
+		return "ajouterCategorie";
+	}
+	
+	public String supprimerProduit(int id_p){
+		adminService.supprimerProduitService(id_p);
+		return "supprimerProduit";
+	}
+	
+	public String modifierProduit (Produit p){
+		adminService.modifierProduitService(p);
+		return "modifierProduit";
+	}
+
+	public Produit getProduit() {
+		return produit;
+	}
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
+
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
+	
+	
 }

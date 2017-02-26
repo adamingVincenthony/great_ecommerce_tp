@@ -32,6 +32,7 @@ public class AdminServiceImpl implements IAdminService{
 
 	@Override
 	public Categorie ajouterCategorieService(Categorie c) {
+		System.out.println("SERVICE OK");
 		return adminDao.ajouterCategorie(c);
 	}
 

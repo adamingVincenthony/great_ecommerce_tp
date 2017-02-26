@@ -57,7 +57,7 @@
 							value="#{adminMB.produit.prix}"></p:inputText>
 					</p>
 					<p:selectOneMenu id="console" styleClass="w3-green"
-						value="#{adminMB.categorie}">
+						value="#{adminMB.categorie.nomCategorie}">
 						<f:selectItem itemLabel="Categorie :" itemValue="" />
 						<f:selectItems value="#{magasinMB.listeNomCat}" var="nCat"
 							itemLabel="#{nCat}" itemValue="#{nCat}" />

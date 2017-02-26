@@ -66,3 +66,15 @@ div h6 {
 .dataTableStyle{
 	text-align: center;	
 }
+.descriptionBlock{
+	width: 300px;
+	height: 100px;
+	margin-top: 10px;
+	margin-left: 10px;	
+}
+.buttProd{
+	font-weight: bold; 
+	text-decoration: underline;
+	border: none;
+	background: none;
+}

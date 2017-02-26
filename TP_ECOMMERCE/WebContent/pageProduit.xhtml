@@ -30,23 +30,42 @@
 	</nav>
 
 
-	<div style="margin-left: 130px"></div>
-	
-	<div id="ShowProd" class="section w3-animate-left">
-			<div class="form">
-				<div class="w3-container w3-green">
-					<h2>
-						<h:outputText value="#{sessionScope.produitSes.designation}"></h:outputText>
-					</h2>
-				</div>
-				<div class="w3-container w3-sand">
-				
-				</div>
-				
-			</div>
-		</div>
-	
+	<div style="margin-left: 130px">
 
+	<div id="ShowProd" class="section w3-animate-left">
+		<div class="form">
+			<div class="w3-container w3-green">
+				<h2>
+					<h:outputText value="#{sessionScope.produitSes.designation}"></h:outputText>
+				</h2>
+			</div>
+			
+			<div style="margin-top: 15px;">
+			<h:outputText styleClass="w3-text-green descriptionBlock" value="Déscription du produit :"></h:outputText>
+				
+				<h:outputText styleClass="w3-text-green w3-sand w3-border"
+					value="#{sessionScope.produitSes.description}"></h:outputText>
+			</div>
+
+			<h:form styleClass="w3-container">
+				<p>
+					<h:outputText styleClass="w3-text-green" value="Quantité à ajouter"></h:outputText>
+					<p:inputText styleClass="w3-input w3-border w3-sand"
+						style="width: 40px;" value="#{magasinMB.qtAjoute}"></p:inputText>
+				</p>
+				<p>
+					<h:commandButton styleClass="w3-btn w3-green"
+						value="Ajouter au panier" action="#{magasinMB.ajouterPanier}">
+						<f:setPropertyActionListener value="#{sessionScope.produitSes}"
+							target="#{magasinMB.produit}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p>
+			</h:form>
+
+		</div>
+	</div>
+
+</div>
 </h:body>
 
 </html>

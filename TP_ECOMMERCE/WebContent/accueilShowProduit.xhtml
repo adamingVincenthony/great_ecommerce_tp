@@ -45,12 +45,16 @@
 					</h2>
 				</div>
 
-				<h:form>
+			
 
-					<p:dataTable styleClass="dataTableStyle" var="prod"
-						value="#{sessionScope.produitListe}">
+					<p:dataTable var="prod" value="#{sessionScope.produitListe}"
+						id="idTab" styleClass="dataTableStyle">
 						<p:column headerText="Désignation">
-							<h:outputText value="#{prod.designation}" />
+							<p:commandButton styleClass="buttProd"
+								value="#{prod.designation}" action="#{magasinMB.goToProduit}">
+								<f:setPropertyActionListener value="#{prod}"
+									target="#{magasinMB.produit}"></f:setPropertyActionListener>
+							</p:commandButton>
 						</p:column>
 
 						<p:column headerText="Déscription">
@@ -60,25 +64,25 @@
 						<p:column headerText="Prix">
 							<h:outputText value="#{prod.prix}" />
 						</p:column>
-
+						
 						<p:column headerText="Quantité à ajouter">
-							<h:inputText value="#{magasinMB.qtAjoute}" style="width: 40px;"></h:inputText>
-						</p:column>
-
-						<p:column>
+							<h:form>
+							
+							<h:inputText value="#{magasinMB.qtAjoute}" style="width: 40px;" ></h:inputText>
+							
 							<p:commandButton value="Ajouter au panier"
 								action="#{magasinMB.ajouterPanier}">
 								<f:setPropertyActionListener value="#{prod}"
 									target="#{magasinMB.produit}"></f:setPropertyActionListener>
 							</p:commandButton>
+							
+							</h:form>
 						</p:column>
-					</p:dataTable>
 
-				</h:form>
+					</p:dataTable>
+			
 			</div>
 		</div>
-
-
 
 	</div>
 

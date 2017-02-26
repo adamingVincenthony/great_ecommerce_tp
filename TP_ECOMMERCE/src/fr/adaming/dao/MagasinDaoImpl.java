@@ -11,7 +11,11 @@ import javax.persistence.Query;
 
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Produit;
-
+/**
+ * 
+ * @author Vincent Bonillo & Anthony Josseaume
+ *@see IMagasinDao
+ */
 @Stateless
 public class MagasinDaoImpl implements IMagasinDao {
 

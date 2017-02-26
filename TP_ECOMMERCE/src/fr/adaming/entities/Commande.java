@@ -17,7 +17,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+/**
+ * Classe représentant la structure de la table commandes dans la DB.
+ * 
+ * @author Vincent Bonillo & Anthony Josseaume
+ *
+ */
 @Entity
 @Table(name = "commandes")
 public class Commande implements Serializable {

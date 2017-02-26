@@ -38,13 +38,14 @@
 				</div>
 				<h:form>
 					<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-						<p:outputLabel for="console" value="Choisissez une catégories :" />
+						<p:outputLabel for="console" value="Choisissez une catégorie :" />
 
 						<p:selectOneMenu id="console" style="width:125px"
-							value="#{magasinMB.categorie.nomCategorie}">
+							value="#{magasinMB.categorie.nomCategorie}" required="true" requiredMessage="Choisissez une catégorie!">
 							<f:selectItem itemLabel="Categorie :" itemValue="" />
 							<f:selectItems value="#{magasinMB.listeNomCat}" var="nCat"
 								itemLabel="#{nCat}" itemValue="#{nCat}" />
+								
 						</p:selectOneMenu>
 
 					</h:panelGrid>

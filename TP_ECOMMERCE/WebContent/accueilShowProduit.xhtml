@@ -68,8 +68,9 @@
 						<p:column headerText="Quantité à ajouter">
 							<h:form>
 							
-							<h:inputText value="#{magasinMB.qtAjoute}" style="width: 40px;" ></h:inputText>
-							
+							<h:inputText value="#{magasinMB.qtAjoute}" style="width: 40px;" id="qteId">
+							<f:validator validatorId="validatorQuantite"></f:validator></h:inputText>
+							<h:message for="qteId" style="color: red;"></h:message>
 							<p:commandButton value="Ajouter au panier"
 								action="#{magasinMB.ajouterPanier}">
 								<f:setPropertyActionListener value="#{prod}"

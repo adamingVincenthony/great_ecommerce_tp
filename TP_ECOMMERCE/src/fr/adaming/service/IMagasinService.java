@@ -4,9 +4,14 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import fr.adaming.dao.IMagasinDao;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Produit;
-
+/**
+ * 
+ * @author Vincent Bonillo & Anthony Josseaume
+ *@see IMagasinDao
+ */
 @Local
 public interface IMagasinService {
 

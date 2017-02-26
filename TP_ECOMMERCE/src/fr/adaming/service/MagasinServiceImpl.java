@@ -8,7 +8,11 @@ import javax.ejb.Stateful;
 import fr.adaming.dao.IMagasinDao;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Produit;
-
+/**
+ * 
+ * @author Vincent Bonillo & Anthony Josseaume
+ *@see IMagasinService
+ */
 @Stateful
 public class MagasinServiceImpl implements IMagasinService {
 

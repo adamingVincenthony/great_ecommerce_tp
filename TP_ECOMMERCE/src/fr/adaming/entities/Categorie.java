@@ -13,7 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+/**
+ * Classe représentant la structure de la table categories dans la DB.
+ * 
+ * @author Vincent Bonillo & Anthony Josseaume
+ *
+ */
 @Entity
 @Table(name="categories")
 public class Categorie {

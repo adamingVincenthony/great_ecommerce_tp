@@ -17,6 +17,10 @@
 
 <h:body>
 
+	<ui:insert>
+		<ui:include src="/templates/layout.xhtml"></ui:include>
+	</ui:insert>
+
 	<!-- Barre de Menu -->
 	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
 		<div class="w3-container">
@@ -37,8 +41,14 @@
 					<h2>Votre Panier :</h2>
 				</div>
 				<h:form>
+					<h2>
+						<h:outputText rendered="#{empty magasinMB.listePanier}"
+							value="Vous n'avez encore rien mis dans votre panier !"
+							styleClass="w3-text-green"></h:outputText>
+					</h2>
 					<p:dataTable styleClass="dataTableStyle" var="prod"
-						value="#{magasinMB.listePanier}" id="idTab">
+						value="#{magasinMB.listePanier}" id="idTab"
+						rendered="#{not empty magasinMB.listePanier}">
 						<p:column headerText="Désignation">
 							<h:outputText value="#{prod.designation}" />
 						</p:column>
@@ -50,23 +60,34 @@
 						<p:column headerText="Prix">
 							<h:outputText value="#{prod.prix}" />
 						</p:column>
-						
+
 						<p:column headerText="Quantité">
 							<h:outputText value="#{prod.quantite}" />
 						</p:column>
 
 						<p:column>
 							<p:commandButton value="Supprimer du panier"
-								action="#{magasinMB.supprimerPanier}">
+								action="#{magasinMB.supprimerPanier}"
+								styleClass="w3-btn w3-green w3-small">
 								<f:setPropertyActionListener value="#{prod}"
 									target="#{magasinMB.produit}"></f:setPropertyActionListener>
 							</p:commandButton>
 						</p:column>
 					</p:dataTable>
-			
+
 				</h:form>
-				<h:outputText styleClass="w3-text-green" value="Total :"></h:outputText>
-				<h:outputText styleClass="w3-text-green" value="#{magasinMB.totalPanier}"></h:outputText>
+				<br />
+				<h4>
+					<h:outputText styleClass="w3-text-green" value="Total :"></h:outputText>
+				</h4>
+				<h:outputText styleClass="w3-text-green"
+					value="#{magasinMB.totalPanier}"></h:outputText>
+				<h:outputText styleClass="w3-text-green" style="margin-left: 5px"
+					value="eur"></h:outputText>
+					<br/>
+				<h:form>
+				<h:commandButton value="Valider la commande" styleClass="w3-btn w3-green" action="finCommande" ></h:commandButton>
+				</h:form>
 			</div>
 		</div>
 	</div>

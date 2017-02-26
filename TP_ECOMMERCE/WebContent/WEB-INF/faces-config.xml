@@ -24,7 +24,7 @@
 	</navigation-rule>
 	
 	<navigation-rule>
-		<from-view-id>searchProduitKW.xhtml</from-view-id>
+		<from-view-id>/searchProduitKW.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>goToProduit</from-outcome>
 			<to-view-id>/pageProduit.xhtml</to-view-id>
@@ -32,7 +32,7 @@
 	</navigation-rule>
 	
 	<navigation-rule>
-		<from-view-id>accueilShowProduit.xhtml</from-view-id>
+		<from-view-id>/accueilShowProduit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>goToProduit</from-outcome>
 			<to-view-id>/pageProduit.xhtml</to-view-id>
@@ -40,7 +40,7 @@
 	</navigation-rule>
 	
 	<navigation-rule>
-		<from-view-id>panier.xhtml</from-view-id>
+		<from-view-id>/panier.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>goToPanier</from-outcome>
 			<to-view-id>/panierAlt.xhtml</to-view-id>
@@ -48,7 +48,7 @@
 	</navigation-rule>
 
 <navigation-rule>
-		<from-view-id>panierAlt.xhtml</from-view-id>
+		<from-view-id>/panierAlt.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>goToPanier</from-outcome>
 			<to-view-id>/panier.xhtml</to-view-id>

@@ -5,52 +5,58 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-<title>Enregistrer client</title>
-<!-- insertion des libraries perso -->
+	<title>Enregistrer client</title>
+	<!-- insertion des libraries perso -->
 	<h:outputStylesheet library="css" name="w3.css"></h:outputStylesheet>
 	<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
 </h:head>
 
 <h:body>
 
-<div id="ajoutCl" style="margin-left: 130px">
-		<div class="form">
-			<div class="w3-container w3-green">
-				<h2>Ajouter un produit :</h2>
+	<ui:insert>
+		<ui:include src="/templates/layout.xhtml"></ui:include>
+	</ui:insert>
+
+	<div id="ajoutCl" style="margin-left: 130px">
+		<div class="section w3-animate-left">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>Ajouter un produit :</h2>
+				</div>
+				<h:form styleClass="w3-container">
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Nom client :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.client.nomClient}"></p:inputText>
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Adresse :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.client.adresse}"></p:inputText>
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Email :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.client.email}"></p:inputText>
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Telephone :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.client.tel}"></p:inputText>
+					</p>
+					<p>
+						<h:commandButton styleClass="w3-btn w3-green" value="Valider"
+							action="#{adminMB.enregistrerClient}">
+						</h:commandButton>
+					</p>
+				</h:form>
 			</div>
-			<h:form styleClass="w3-container">
-				<p>
-					<h:outputText styleClass="w3-text-green" value="Nom client :"></h:outputText>
-					<p:inputText styleClass="w3-input w3-border w3-sand"
-						value="#{adminMB.client.nomClient}"></p:inputText>
-				</p>
-				<p>
-					<h:outputText styleClass="w3-text-green" value="Adresse :"></h:outputText>
-					<p:inputText styleClass="w3-input w3-border w3-sand"
-						value="#{adminMB.client.adresse}"></p:inputText>
-				</p>
-				<p>
-					<h:outputText styleClass="w3-text-green" value="Email :"></h:outputText>
-					<p:inputText styleClass="w3-input w3-border w3-sand"
-						value="#{adminMB.client.email}"></p:inputText>
-				</p>
-				<p>
-					<h:outputText styleClass="w3-text-green" value="Telephone :"></h:outputText>
-					<p:inputText styleClass="w3-input w3-border w3-sand"
-						value="#{adminMB.client.tel}"></p:inputText>
-				</p>
-				<p>
-					<h:commandButton styleClass="w3-btn w3-green" value="Valider"
-						action="#{adminMB.enregistrerClient}">
-					</h:commandButton>
-				</p>
-			</h:form>
 		</div>
 	</div>
-
 </h:body>
 
 </html>

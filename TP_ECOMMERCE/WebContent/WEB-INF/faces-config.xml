@@ -54,6 +54,37 @@
 			<to-view-id>/panier.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
+	
+<navigation-rule>
+		<from-view-id>/ajouterC.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>ajouterCategorie</from-outcome>
+			<to-view-id>/accueilAdmin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/modifierP.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>modifierProduit</from-outcome>
+			<to-view-id>/accueilAdmin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/supprimerP.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>supprimerProduit</from-outcome>
+			<to-view-id>/accueilAdmin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/creationClient.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>enregistrerClient</from-outcome>
+			<to-view-id>/finCommande.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>
 

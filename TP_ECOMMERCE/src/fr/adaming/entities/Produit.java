@@ -42,7 +42,7 @@ public class Produit implements Serializable{
 	private boolean selectionne;
 
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="categorie_id_fk", referencedColumnName="id_cat")
 	private Categorie categorieProduit;
 

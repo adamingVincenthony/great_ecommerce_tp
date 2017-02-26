@@ -10,6 +10,7 @@ import fr.adaming.dao.AdminDaoImpl;
 import fr.adaming.dao.IAdminDao;
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Produit;
 
 @Stateful
@@ -52,6 +53,11 @@ public class AdminServiceImpl implements IAdminService{
 	@Override
 	public Produit getByIdService(long id_p) {
 		return adminDao.getById(id_p);
+	}
+
+	@Override
+	public Client enregistrerClientService(Client cl) {
+		return adminDao.enregistrerClient(cl);
 	}
 	
 	

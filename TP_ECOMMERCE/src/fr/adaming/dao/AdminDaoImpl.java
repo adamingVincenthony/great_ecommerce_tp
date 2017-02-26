@@ -9,6 +9,7 @@ import javax.persistence.Query;
 
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Produit;
 
 @Stateless
@@ -69,6 +70,12 @@ public class AdminDaoImpl implements IAdminDao{
 	@Override
 	public Produit getById(long id_p) {
 		return em.find(Produit.class, id_p);
+	}
+
+	@Override
+	public Client enregistrerClient(Client cl) {
+		em.persist(cl);
+		return null;
 	}
 
 }

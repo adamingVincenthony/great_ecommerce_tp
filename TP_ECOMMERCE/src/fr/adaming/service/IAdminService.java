@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Produit;
 
 
@@ -20,4 +21,5 @@ public interface IAdminService {
 	public Produit modifierProduitService(Produit p);
 	public List<Produit> getAllProduitService();
 	public Produit getByIdService(long id_p);
+	public Client enregistrerClientService(Client cl);
 }

@@ -3,6 +3,7 @@ package fr.adaming.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,7 +42,7 @@ public class Produit implements Serializable{
 	private boolean selectionne;
 
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="categorie_id_fk", referencedColumnName="id_cat")
 	private Categorie categorieProduit;
 

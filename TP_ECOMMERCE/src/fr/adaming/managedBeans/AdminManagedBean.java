@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Produit;
 import fr.adaming.service.AdminServiceImpl;
 import fr.adaming.service.IAdminService;
@@ -27,6 +28,7 @@ public class AdminManagedBean implements Serializable{
 	private Admin admin;
 	private Produit produit;
 	private Categorie categorie;
+	private Client client;
 	
 	@EJB
 	IAdminService adminService=new AdminServiceImpl();
@@ -38,8 +40,8 @@ public class AdminManagedBean implements Serializable{
 	public AdminManagedBean() {
 		this.admin=new Admin();
 		this.produit=new Produit();
-		this.produit.setCategorieProduit(categorie);
 		this.categorie=new Categorie();
+		this.setClient(new Client());
 	}
 
 	public Admin getAdmin() {
@@ -74,35 +76,6 @@ public class AdminManagedBean implements Serializable{
 		this.listeC = listeC;
 	}
 	
-	public String connecter(){
-		Admin admin=adminService.isExistService(this.admin);
-		if(admin!=null){
-			return "succes";
-		}else{
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur de saisie de données"));
-			return "echec";
-		}
-	}
-
-	public String ajouterProduit(){
-		adminService.ajouterProduitService(produit);
-		return "ajouterProduit";
-	}
-	public String ajouterCategorie (){
-		adminService.ajouterCategorieService(categorie);
-		return "ajouterCategorie";
-	}
-	
-	public String supprimerProduit(){
-		adminService.supprimerProduitService(produit.getId_produit());
-		return "supprimerProduit";
-	}
-	
-	public String modifierProduit(){
-		adminService.modifierProduitService(produit);
-		return "modifierProduit";
-	}
-
 	public Produit getProduit() {
 		return produit;
 	}
@@ -118,6 +91,51 @@ public class AdminManagedBean implements Serializable{
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	
+	public String connecter(){
+		Admin admin=adminService.isExistService(this.admin);
+		if(admin!=null){
+			return "succes";
+		}else{
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur de saisie de données"));
+			return "echec";
+		}
+	}
+
+	public String ajouterProduit(){
+		produit.setCategorieProduit(this.categorie);
+		adminService.ajouterProduitService(produit);
+		return "ajouterProduit";
+	}
+	public String ajouterCategorie (){
+		adminService.ajouterCategorieService(categorie);
+		return "ajouterCategorie";
+	}
+	
+	public String enregistrerClient(){
+		adminService.enregistrerClientService(client);
+		return "enregistrerClient";
+	}
+	
+	public String supprimerProduit(){
+		adminService.supprimerProduitService(produit.getId_produit());
+		return "supprimerProduit";
+	}
+	
+	public String modifierProduit(){
+		adminService.modifierProduitService(produit);
+		return "modifierProduit";
+	}
+
+	
 	
 	
 }

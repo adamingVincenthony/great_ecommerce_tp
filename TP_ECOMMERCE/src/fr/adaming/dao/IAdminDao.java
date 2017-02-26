@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Produit;
 
 @Local
@@ -18,5 +19,6 @@ public interface IAdminDao {
 	public Produit modifierProduit(Produit p);
 	public List<Produit> getAllProduit();
 	public Produit getById(long id_p);
+	public Client enregistrerClient(Client cl);
 	
 }	

@@ -50,14 +50,15 @@
 						value="#{adminMB.produit.prix}"></p:inputText>
 				</p>
 				<p:selectOneMenu id="console" style="width:125px"
-					value="#{adminMB.produit.categorieProduit}">
+					value="#{adminMB.categorie}">
 					<f:selectItem itemLabel="Categorie :" itemValue="" />
 					<f:selectItems value="#{magasinMB.listeNomCat}" var="nCat"
 						itemLabel="#{nCat}" itemValue="#{nCat}" />
 				</p:selectOneMenu>
 				<p>
 					<h:commandButton styleClass="w3-btn w3-green" value="Valider"
-						action="#{adminMB.ajouterProduit}"></h:commandButton>
+						action="#{adminMB.ajouterProduit}">
+					</h:commandButton>
 				</p>
 			</h:form>
 		</div>

@@ -20,6 +20,10 @@
 
 <h:body>
 
+	<ui:insert>
+		<ui:include src="/templates/layout.xhtml"></ui:include>
+	</ui:insert>
+
 	<!-- Barre de Menu -->
 	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
 		<div class="w3-container">
@@ -43,45 +47,45 @@
 						Catégorie :
 						<h:outputText value="#{sessionScope.categorieSes.nomCategorie}"></h:outputText>
 					</h2>
-				</div>
+				</div><br/>
 
-			
+				<p:dataTable var="prod" value="#{sessionScope.produitListe}"
+					id="idTab" styleClass="dataTableStyle">
+					<p:column headerText="Désignation">
+						<p:commandButton
+							styleClass="w3-btn w3-white w3-border w3-border-green w3-round-large"
+							value="#{prod.designation}" action="#{magasinMB.goToProduit}">
+							<f:setPropertyActionListener value="#{prod}"
+								target="#{magasinMB.produit}"></f:setPropertyActionListener>
+						</p:commandButton>
+					</p:column>
 
-					<p:dataTable var="prod" value="#{sessionScope.produitListe}"
-						id="idTab" styleClass="dataTableStyle">
-						<p:column headerText="Désignation">
-							<p:commandButton styleClass="buttProd"
-								value="#{prod.designation}" action="#{magasinMB.goToProduit}">
-								<f:setPropertyActionListener value="#{prod}"
-									target="#{magasinMB.produit}"></f:setPropertyActionListener>
-							</p:commandButton>
-						</p:column>
+					<p:column headerText="Déscription">
+						<h:outputText value="#{prod.description}" />
+					</p:column>
 
-						<p:column headerText="Déscription">
-							<h:outputText value="#{prod.description}" />
-						</p:column>
+					<p:column headerText="Prix">
+						<h:outputText value="#{prod.prix}" />
+					</p:column>
 
-						<p:column headerText="Prix">
-							<h:outputText value="#{prod.prix}" />
-						</p:column>
-						
-						<p:column headerText="Quantité à ajouter">
-							<h:form>
-							
-							<h:inputText value="#{magasinMB.qtAjoute}" style="width: 40px;" id="qteId">
-							<f:validator validatorId="validatorQuantite"></f:validator></h:inputText>
+					<p:column headerText="Quantité à ajouter">
+						<h:form>
+							<h:inputText value="#{magasinMB.qtAjoute}" style="width: 40px;"
+								styleClass="w3-input w3-border w3-sand" id="qteId">
+								<f:validator validatorId="validatorQuantite"></f:validator>
+							</h:inputText>
 							<h:message for="qteId" style="color: red;"></h:message>
-							<p:commandButton value="Ajouter au panier"
-								action="#{magasinMB.ajouterPanier}">
+							<p:commandButton styleClass="w3-btn w3-green w3-small"
+								value="Ajouter au panier" action="#{magasinMB.ajouterPanier}">
 								<f:setPropertyActionListener value="#{prod}"
 									target="#{magasinMB.produit}"></f:setPropertyActionListener>
 							</p:commandButton>
-							
-							</h:form>
-						</p:column>
 
-					</p:dataTable>
-			
+						</h:form>
+					</p:column>
+
+				</p:dataTable>
+
 			</div>
 		</div>
 

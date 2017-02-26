@@ -20,8 +20,12 @@
 
 <h:body>
 
+	<ui:insert>
+		<ui:include src="/templates/layout.xhtml"></ui:include>
+	</ui:insert>
+
 	<!-- Barre de Menu -->
-	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px ; margin-top: 50px;">
+	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px;">
 		<div class="w3-container">
 			<h2 class="menu">Menu</h2>
 		</div>
@@ -34,7 +38,14 @@
 	</nav>
 
 
-	<div style="margin-left: 130px"></div>
+	<div style="margin-left: 200px; margin-top: 50px;">
+		<h2>
+			<h:outputText 
+				value="Bienvenue sur notre boutique en ligne de vente d'animaux !"
+				styleClass="w3-text-green"></h:outputText>
+		</h2>
+
+	</div>
 </h:body>
 
 </html>

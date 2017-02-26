@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
 	<title>ajouter une categorie</title>
@@ -15,6 +16,10 @@
 </h:head>
 
 <h:body>
+
+	<ui:insert>
+		<ui:include src="/templates/layout.xhtml"></ui:include>
+	</ui:insert>
 
 	<!-- Barre de Menu -->
 	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
@@ -29,26 +34,28 @@
 	</nav>
 
 	<div id="ajoutC" style="margin-left: 130px">
-		<div class="form">
-			<div class="w3-container w3-green">
-				<h2>Ajouter une categorie :</h2>
+		<div class="section w3-animate-left">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>Ajouter une categorie :</h2>
+				</div>
+				<h:form styleClass="w3-container">
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Nom :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.categorie.nomCategorie}"></p:inputText>
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Déscription :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.categorie.description}"></p:inputText>
+					</p>
+					<p>
+						<h:commandButton styleClass="w3-btn w3-green" value="Valider"
+							action="#{adminMB.ajouterCategorie}"></h:commandButton>
+					</p>
+				</h:form>
 			</div>
-			<h:form styleClass="w3-container">
-				<p>
-					<h:outputText styleClass="w3-text-green" value="Nom :"></h:outputText>
-					<p:inputText styleClass="w3-input w3-border w3-sand"
-						value="#{adminMB.categorie.nomCategorie}"></p:inputText>
-				</p>
-				<p>
-					<h:outputText styleClass="w3-text-green" value="Déscription :"></h:outputText>
-					<p:inputText styleClass="w3-input w3-border w3-sand"
-						value="#{adminMB.categorie.description}"></p:inputText>
-				</p>
-				<p>
-					<h:commandButton styleClass="w3-btn w3-green" value="Valider"
-						action="#{adminMB.ajouterCategorie}"></h:commandButton>
-				</p>
-			</h:form>
 		</div>
 	</div>
 </h:body>

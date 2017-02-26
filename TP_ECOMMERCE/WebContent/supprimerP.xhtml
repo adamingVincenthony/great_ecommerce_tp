@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
 	<title>Supprimer une catégorie</title>
@@ -14,35 +15,43 @@
 	<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
 </h:head>
 <h:body>
-<!-- Barre de Menu -->
-<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
-	<div class="w3-container">
-		<h2 class="menu">Menu</h2>
-	</div>
-	<a href="accueilAdmin.xhtml" class="tablink w3-green">Home</a> <a
-		href="ajouterP.xhtml" class="tablink">Ajouter un produit</a> <a
-		href="ajouterC.xhtml" class="tablink">Ajouter une catégorie</a><a
-		href="supprimerP.xhtml" class="tablink">Supprimer un produit</a> <a
-		href="modifierP.xhtml" class="tablink">Modifier un produit</a>
-</nav>
-<div id="supprimerP" style="margin-left: 130px">
-	<div class="form">
-		<div class="w3-container w3-green">
-			<h2>Supprimer un produit :</h2>
+
+	<ui:insert>
+		<ui:include src="/templates/layout.xhtml"></ui:include>
+	</ui:insert>
+
+	<!-- Barre de Menu -->
+	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
+		<div class="w3-container">
+			<h2 class="menu">Menu</h2>
 		</div>
-		<h:form styleClass="w3-container">
-			<p>
-				<h:outputText styleClass="w3-text-green" value="Id produit :"></h:outputText>
-				<p:inputText styleClass="w3-input w3-border w3-sand"
-					value="#{adminMB.produit.id_produit}"></p:inputText>
-			</p>
-			<p>
-				<h:commandButton styleClass="w3-btn w3-green" value="Valider"
-					action="#{adminMB.supprimerProduit}"></h:commandButton>
-			</p>
-		</h:form>
+		<a href="accueilAdmin.xhtml" class="tablink w3-green">Home</a> <a
+			href="ajouterP.xhtml" class="tablink">Ajouter un produit</a> <a
+			href="ajouterC.xhtml" class="tablink">Ajouter une catégorie</a><a
+			href="supprimerP.xhtml" class="tablink">Supprimer un produit</a> <a
+			href="modifierP.xhtml" class="tablink">Modifier un produit</a>
+	</nav>
+
+	<div id="supprimerP" style="margin-left: 130px">
+		<div class="section w3-animate-left">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>Supprimer un produit :</h2>
+				</div>
+				<h:form styleClass="w3-container">
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Id produit :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.produit.id_produit}"></p:inputText>
+					</p>
+					<p>
+						<h:commandButton styleClass="w3-btn w3-green" value="Valider"
+							action="#{adminMB.supprimerProduit}"></h:commandButton>
+					</p>
+				</h:form>
+			</div>
+		</div>
 	</div>
-</div>
 </h:body>
 
 </html>

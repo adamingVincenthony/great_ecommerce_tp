@@ -25,10 +25,13 @@ Nom:
 					required="true" label="nom" styleClass="w3-border w3-round w3-border-grey"></h:inputText>
 				<h:message for="nom_id" style="color: vermillon"></h:message>
 Password:
-<h:inputText id="password_id"
+<h:inputSecret id="password_id"
 					value="#{adminMB.admin.mdp}" required="true"
 					label="password" ></h:inputSecret>
 				<h:message for="password_id" style="color: vermillon"></h:message>
+
+					label="password" styleClass="w3-border w3-round w3-border-grey"></h:inputText>
+				<h:message for="password_id" style="color: vermillon"></h:message><br/>
 
 			</h:panelGrid>
 			<h:commandButton value="Se connecter" styleClass="w3-btn btnLog" 

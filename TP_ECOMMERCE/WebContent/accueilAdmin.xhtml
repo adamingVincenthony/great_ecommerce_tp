@@ -20,21 +20,34 @@
 
 <h:body>
 
+	<ui:insert>
+		<ui:include src="/templates/layout.xhtml"></ui:include>
+	</ui:insert>
 
 	<!-- Barre de Menu -->
-	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
+	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px;">
 		<div class="w3-container">
 			<h2 class="menu">Menu</h2>
 		</div>
-		<a href="accueilAdmin.xhtml" class="tablink w3-green">Home Admin</a>  
-		<a href="accueil.xhtml" class="tablink w3-green">Home</a>
-		<a
+		<a href="accueilAdmin.xhtml" class="tablink w3-green">Home Admin</a> <a
+			href="accueil.xhtml" class="tablink">Home</a> <a
 			href="ajouterP.xhtml" class="tablink">Ajouter un produit</a> <a
 			href="ajouterC.xhtml" class="tablink">Ajouter une catégorie</a><a
 			href="supprimerP.xhtml" class="tablink">Supprimer un produit</a> <a
 			href="modifierP.xhtml" class="tablink">Modifier un produit</a>
 	</nav>
+	
+	<div style="margin-left: 200px; margin-top: 50px; ">
+		<h2>
+			<h:outputText
+				value="Vous êtes connécter en tant qu'administrateur."
+				styleClass="w3-text-green"></h:outputText><br/>
+				<h:outputText
+				value="Choisissez une opération à effectuer."
+				styleClass="w3-text-green"></h:outputText>
+		</h2>
 
+	</div>
 </h:body>
 
 </html>

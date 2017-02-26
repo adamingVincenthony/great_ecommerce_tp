@@ -5,6 +5,7 @@ body {
 	font-size: large;
 	text-shadow: 3px 2px 5px #888888;
 	color: rgb(10, 40, 10);
+	margin-bottom: 50px;
 	
 }
 
@@ -77,4 +78,8 @@ div h6 {
 	text-decoration: underline;
 	border: none;
 	background: none;
+}
+
+.btnLog{
+	background-color: Lightsalmon
 }

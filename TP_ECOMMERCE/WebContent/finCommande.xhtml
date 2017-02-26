@@ -5,14 +5,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
 <title>Félicitations</title>
+<!-- insertion des libraries perso -->
+	<h:outputScript library="js" name="commerceJs.js"></h:outputScript>
+	<h:outputStylesheet library="css" name="w3.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
 </h:head>
 
 <h:body>
-<h1>Bravo votre commande est passée</h1>
+
+<ui:insert>
+		<ui:include src="/templates/layout.xhtml"></ui:include>
+	</ui:insert>
+
+	<!-- Barre de Menu -->
+	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px;">
+		<div class="w3-container">
+			<h2 class="menu">Menu</h2>
+		</div>
+		<a href="accueil.xhtml" class="tablink w3-green">Home</a> <a
+			href="login.xhtml" class="tablink">Accès Admin</a> <a
+			href="searchCategorie.xhtml" class="tablink">Produit par
+			catégorie</a> <a href="searchProduitKW.xhtml" class="tablink">Chercher
+			un produit</a> <a href="panier.xhtml" class="tablink">Acceder au
+			panier</a>
+	</nav>
+
+<h1 style="color: Darksalmon ; text-align:center ">Bravo votre commande est passée !!!</h1>
 </h:body>
 
 </html>

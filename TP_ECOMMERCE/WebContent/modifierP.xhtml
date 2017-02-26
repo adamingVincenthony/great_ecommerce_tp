@@ -18,58 +18,64 @@
 
 <h:body>
 
-<ui:insert>
-<ui:include src="/templates/layout.xhtml"></ui:include>
-</ui:insert>
+	<ui:insert>
+		<ui:include src="/templates/layout.xhtml"></ui:include>
+	</ui:insert>
 
 	<!-- Barre de Menu -->
 	<nav class="w3-sidenav w3-white w3-card-2" style="width: 130px">
 		<div class="w3-container">
 			<h2 class="menu">Menu</h2>
 		</div>
-		<a href="accueilAdmin.xhtml" class="tablink w3-green">Home</a> <a
+		<a href="accueilAdmin.xhtml" class="tablink">Home</a> <a
 			href="ajouterP.xhtml" class="tablink">Ajouter un produit</a> <a
 			href="ajouterC.xhtml" class="tablink">Ajouter une catégorie</a><a
 			href="supprimerP.xhtml" class="tablink">Supprimer un produit</a> <a
-			href="modifierP.xhtml" class="tablink">Modifier un produit</a>
+			href="modifierP.xhtml" class="tablink w3-green">Modifier un
+			produit</a>
 	</nav>
 
 	<div id="modifierP" style="margin-left: 130px">
-	<div class="section w3-animate-left">
-		<div class="form">
-			<div class="w3-container w3-green">
-				<h2>Modifier un produit :</h2>
+		<div class="section w3-animate-left">
+			<div class="form">
+				<div class="w3-container w3-green">
+					<h2>Modifier un produit :</h2>
+				</div>
+				<h:form styleClass="w3-container">
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Désignation :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.produit.designation}"></p:inputText>
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Déscription :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.produit.description}"></p:inputText>
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="Prix :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.produit.prix}"></p:inputText>
+					</p>
+					<p>
+						<h:outputText styleClass="w3-text-green" value="ID du produit à modifier :"></h:outputText>
+						<p:inputText styleClass="w3-input w3-border w3-sand"
+							value="#{adminMB.produit.id_produit}"></p:inputText>
+					</p>
+					<p:selectOneMenu id="console" styleClass="w3-green"
+						value="#{adminMB.categorie.nomCategorie}">
+						<f:selectItem itemLabel="Categorie :" itemValue="" />
+						<f:selectItems value="#{adminMB.listeNomCat}" var="nCat"
+							itemLabel="#{nCat}" itemValue="#{nCat}" />
+					</p:selectOneMenu>
+					<p>
+						<h:commandButton styleClass="w3-btn w3-green" value="Valider"
+							action="#{adminMB.modifierProduit}"></h:commandButton>
+					</p>
+				</h:form>
 			</div>
-			<h:form styleClass="w3-container">
-				<p>
-					<h:outputText styleClass="w3-text-green" value="Désignation :"></h:outputText>
-					<p:inputText styleClass="w3-input w3-border w3-sand"
-						value="#{adminMB.produit.designation}"></p:inputText>
-				</p>
-				<p>
-					<h:outputText styleClass="w3-text-green" value="Déscription :"></h:outputText>
-					<p:inputText styleClass="w3-input w3-border w3-sand"
-						value="#{adminMB.produit.description}"></p:inputText>
-				</p>
-				<p>
-					<h:outputText styleClass="w3-text-green" value="Prix :"></h:outputText>
-					<p:inputText styleClass="w3-input w3-border w3-sand"
-						value="#{adminMB.produit.prix}"></p:inputText>
-				</p>
-				<p:selectOneMenu id="console" w3-select w3-border"
-					value="#{adminMB.produit.categorieProduit}">
-					<f:selectItem itemLabel="Categorie :" itemValue="" />
-					<f:selectItems value="#{magasinMB.listeNomCat}" var="nCat"
-						itemLabel="#{nCat}" itemValue="#{nCat}" />
-				</p:selectOneMenu>
-				<p>
-					<h:commandButton styleClass="w3-btn w3-green" value="Valider"
-						action="#{adminMB.modifierProduit}"></h:commandButton>
-				</p>
-			</h:form>
 		</div>
 	</div>
-</div>
 
 </h:body>
 

@@ -211,6 +211,8 @@ public class AdminManagedBean implements Serializable{
 	 * @return un string pouvant déclencher un cas de navigation
 	 */
 	public String modifierProduit(){
+		this.categorie = this.mapCategorie.get(this.categorie.getNomCategorie());
+		this.produit.setCategorieProduit(categorie);
 		adminService.modifierProduitService(produit);
 		return "modifierProduit";
 	}

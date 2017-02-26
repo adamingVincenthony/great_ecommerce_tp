@@ -14,9 +14,9 @@ public interface IAdminDao {
 	public Admin isExist(Admin a);
 	public Categorie ajouterCategorie(Categorie c);
 	public Produit ajouterProduit(Produit p);
-	public void supprimerProduit(int id_p);
+	public void supprimerProduit(long id_p);
 	public Produit modifierProduit(Produit p);
 	public List<Produit> getAllProduit();
-	public Produit getById(int id_p);
+	public Produit getById(long id_p);
 	
 }	

@@ -47,7 +47,7 @@ public class AdminDaoImpl implements IAdminDao{
 	}
 
 	@Override
-	public void supprimerProduit(int id_p) {
+	public void supprimerProduit(long id_p) {
 		em.remove(em.find(Produit.class, id_p));
 	}
 
@@ -67,7 +67,7 @@ public class AdminDaoImpl implements IAdminDao{
 	}
 
 	@Override
-	public Produit getById(int id_p) {
+	public Produit getById(long id_p) {
 		return em.find(Produit.class, id_p);
 	}
 

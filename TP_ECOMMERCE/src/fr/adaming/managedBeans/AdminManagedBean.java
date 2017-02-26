@@ -37,8 +37,9 @@ public class AdminManagedBean implements Serializable{
 
 	public AdminManagedBean() {
 		this.admin=new Admin();
-		this.setProduit(new Produit());
-		this.setCategorie(new Categorie());
+		this.produit=new Produit();
+		this.produit.setCategorieProduit(categorie);
+		this.categorie=new Categorie();
 	}
 
 	public Admin getAdmin() {
@@ -83,22 +84,22 @@ public class AdminManagedBean implements Serializable{
 		}
 	}
 
-	public String ajouterProduit(Produit p){
-		adminService.ajouterProduitService(p);
+	public String ajouterProduit(){
+		adminService.ajouterProduitService(produit);
 		return "ajouterProduit";
 	}
-	public String ajouterCategorie (Categorie c){
-		adminService.ajouterCategorieService(c);
+	public String ajouterCategorie (){
+		adminService.ajouterCategorieService(categorie);
 		return "ajouterCategorie";
 	}
 	
-	public String supprimerProduit(int id_p){
-		adminService.supprimerProduitService(id_p);
+	public String supprimerProduit(){
+		adminService.supprimerProduitService(produit.getId_produit());
 		return "supprimerProduit";
 	}
 	
-	public String modifierProduit (Produit p){
-		adminService.modifierProduitService(p);
+	public String modifierProduit(){
+		adminService.modifierProduitService(produit);
 		return "modifierProduit";
 	}
 

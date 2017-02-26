@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14878456501860" configfile="/TP_ECOMMERCE/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="122" y="178" id="pf14878807807500" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" outlinks="pf14878807807511 pf14878807807512" inlinks="pf14878807807512" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueil.xhtml" x="338" y="178" id="pf14878807807513" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14878807807511" path="/accueil.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="searchCategorie.xhtml" id="pf14879403854760" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14879403854761" path="/searchCategorie.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueilShowProduit.xhtml" id="pf14879403854762" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14879403854761" path="/accueilShowProduit.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="searchProduitKW.xhtml" id="pf14880479166243" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf14880479166244" path="searchProduitKW.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pageProduit.xhtml" id="pf14880479166245" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf14880479166244 pf14880496835676" path="/pageProduit.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="accueilShowProduit.xhtml" id="pf14880496835677" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14880496835676" path="accueilShowProduit.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="panier.xhtml" id="pf148811050304613" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf148811050304614" path="panier.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="panierAlt.xhtml" id="pf148811050304615" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf148811050304614" path="/panierAlt.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="122" y="178" id="pf14878807807500" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" outlinks="pf14878807807512 pf14881187254240" inlinks="pf14878807807512" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="searchCategorie.xhtml" id="pf14879403854760" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14879403854761" path="/searchCategorie.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueilShowProduit.xhtml" id="pf14879403854762" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14879403854761" path="/accueilShowProduit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="searchProduitKW.xhtml" id="pf14880479166243" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14880479166244" path="searchProduitKW.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pageProduit.xhtml" id="pf14880479166245" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14880479166244 pf14880496835676" path="/pageProduit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueilShowProduit.xhtml" id="pf14880496835677" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf14880496835676" path="accueilShowProduit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="panier.xhtml" id="pf148811050304613" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf148811050304614" path="panier.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="panierAlt.xhtml" id="pf148811050304615" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf148811050304614" path="/panierAlt.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="panierAlt.xhtml" id="pf148811050304616" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf148811050304617" path="panierAlt.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="panier.xhtml" id="pf148811050304618" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf148811050304617" path="/panier.xhtml"/>
-  <links id="pf14878807807511" target="pf14878807807513" source="pf14878807807500" outcome="succes"/>
+  <nodes xsi:type="pageflow:PFPage" name="accueilAdmin.xhtml" id="pf14881187254251" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14881187254240" path="/accueilAdmin.xhtml"/>
   <links id="pf14878807807512" target="pf14878807807500" source="pf14878807807500" outcome="echec">
     <bendPoints d1Height="-36" d2Height="-36"/>
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
@@ -22,4 +21,5 @@
   <links id="pf14880496835676" target="pf14880479166245" source="pf14880496835677" outcome="goToProduit"/>
   <links id="pf148811050304614" target="pf148811050304615" source="pf148811050304613" outcome="goToPanier"/>
   <links id="pf148811050304617" target="pf148811050304618" source="pf148811050304616" outcome="goToPanier"/>
+  <links id="pf14881187254240" target="pf14881187254251" source="pf14878807807500" outcome="succes"/>
 </pageflow:Pageflow>

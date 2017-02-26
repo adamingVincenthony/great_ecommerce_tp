@@ -16,8 +16,8 @@ public interface IAdminService {
 	public Admin isExistService(Admin a);
 	public Categorie ajouterCategorieService(Categorie c);
 	public Produit ajouterProduitService(Produit p);
-	public void supprimerProduitService(int id_p);
+	public void supprimerProduitService(long id_p);
 	public Produit modifierProduitService(Produit p);
 	public List<Produit> getAllProduitService();
-	public Produit getByIdService(int id_p);
+	public Produit getByIdService(long id_p);
 }

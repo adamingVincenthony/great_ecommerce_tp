@@ -1,7 +1,9 @@
 package fr.adaming.managedBeans;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -16,6 +18,13 @@ import fr.adaming.entities.Produit;
 import fr.adaming.service.AdminServiceImpl;
 import fr.adaming.service.IAdminService;
 
+/**
+ * ManagedBean contenant les méthodes permettant aux administrateurs de se loguer et d'apporter des modifications aux éléments
+ * de la base de données (produits, catégorie) et une méthode permettant d'enregistrer les informations des clients
+ * @author Vincent Bonillo & Anthony Josseaume
+ *@see IAdminDao
+ */
+
 @ManagedBean(name="adminMB")
 @ViewScoped
 public class AdminManagedBean implements Serializable{
@@ -29,6 +38,7 @@ public class AdminManagedBean implements Serializable{
 	private Produit produit;
 	private Categorie categorie;
 	private Client client;
+	private Map<String, Categorie> mapCategorie;
 	
 	@EJB
 	IAdminService adminService=new AdminServiceImpl();
@@ -38,10 +48,11 @@ public class AdminManagedBean implements Serializable{
 	List<Categorie> listeC;
 
 	public AdminManagedBean() {
-		this.admin=new Admin();
-		this.produit=new Produit();
-		this.categorie=new Categorie();
-		this.setClient(new Client());
+		admin=new Admin();
+		produit=new Produit();
+		categorie=new Categorie();
+		client=new Client();
+		mapCategorie = new HashMap<String, Categorie>();
 	}
 
 	public Admin getAdmin() {
@@ -100,6 +111,19 @@ public class AdminManagedBean implements Serializable{
 		this.client = client;
 	}
 	
+	
+	public Map<String, Categorie> getMapCategorie() {
+		return mapCategorie;
+	}
+
+	public void setMapCategorie(Map<String, Categorie> mapCategorie) {
+		this.mapCategorie = mapCategorie;
+	}
+
+	/**
+	 * Méthode vérifiant l'existence d'un admin avec les paramètres saisient dans le formulaire dans la bdd
+	 * @return un string déclant un cas de navigation 
+	 */
 	public String connecter(){
 		Admin admin=adminService.isExistService(this.admin);
 		if(admin!=null){
@@ -110,26 +134,44 @@ public class AdminManagedBean implements Serializable{
 		}
 	}
 
+	/**
+	 * Méthode permettant d'enregistrer les données lors de l'ajout d'un produit dans la bdd
+	 * @return un string pouvant déclencher un cas de navigation
+	 */
 	public String ajouterProduit(){
-		produit.setCategorieProduit(this.categorie);
+		this.categorie = this.mapCategorie.get(this.categorie.getNomCategorie());
+		this.produit.setCategorieProduit(categorie);
 		adminService.ajouterProduitService(produit);
 		return "ajouterProduit";
 	}
+	/**
+	 * Méthode permettant d'enregistrer les données lors de l'ajout d'une catégorie dans la bdd
+	 * @return un string pouvant déclencher un cas de navigation
+	 */
 	public String ajouterCategorie (){
 		adminService.ajouterCategorieService(categorie);
 		return "ajouterCategorie";
 	}
-	
+	/**
+	 * Méthode permettant d'enregistrer les données lors de l'ajout d'un client dans la bdd
+	 * @return un string pouvant déclencher un cas de navigation
+	 */
 	public String enregistrerClient(){
 		adminService.enregistrerClientService(client);
 		return "enregistrerClient";
 	}
-	
+	/**
+	 * Méthode permettant de supprimer les données d'un produit dans la bdd
+	 * @return un string pouvant déclencher un cas de navigation
+	 */
 	public String supprimerProduit(){
 		adminService.supprimerProduitService(produit.getId_produit());
 		return "supprimerProduit";
 	}
-	
+	/**
+	 * Méthode permettant d'enregistrer de nouvelles données lors de la modification d'un produit dans la bdd
+	 * @return un string pouvant déclencher un cas de navigation
+	 */
 	public String modifierProduit(){
 		adminService.modifierProduitService(produit);
 		return "modifierProduit";

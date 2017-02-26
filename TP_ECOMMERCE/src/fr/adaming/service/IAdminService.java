@@ -4,12 +4,17 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import fr.adaming.dao.IMagasinDao;
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Produit;
 
-
+/**
+ * 
+ * @author Vincent Bonillo & Anthony Josseaume
+ *@see IAdminDao
+ */
 @Local
 public interface IAdminService {
 

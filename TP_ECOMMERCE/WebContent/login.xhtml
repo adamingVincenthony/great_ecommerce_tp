@@ -11,23 +11,27 @@
 <title>login</title>
 </h:head>
 
+<h:outputStylesheet library="css" name="w3.css"></h:outputStylesheet>
+<h:outputStylesheet library="css" name="commerceStyle.css"></h:outputStylesheet>
+
+
 <h:body>
-<div align="center">
-		<h1 style="color: lightsalmon">Veuillez vous connecter</h1>
+<div style="margin-left: 600px; margin-top: 170px">
+		<h1 style="color: lightsalmon ; text-align: left;">Veuillez vous connecter</h1><br/>
 		<h:form>
 			<h:panelGrid columns="3">
 Nom:
 <h:inputText id="nom_id" value="#{adminMB.admin.nom}"
-					required="true" label="nom"></h:inputText>
+					required="true" label="nom" styleClass="w3-border w3-round w3-border-grey"></h:inputText>
 				<h:message for="nom_id" style="color: vermillon"></h:message>
 Password:
 <h:inputText id="password_id"
 					value="#{adminMB.admin.mdp}" required="true"
-					label="password"></h:inputText>
+					label="password" ></h:inputSecret>
 				<h:message for="password_id" style="color: vermillon"></h:message>
 
 			</h:panelGrid>
-			<h:commandButton value="Se connecter"
+			<h:commandButton value="Se connecter" styleClass="w3-btn btnLog" 
 				action="#{adminMB.connecter}" />
 			<h:messages style="color: red" />
 		</h:form>

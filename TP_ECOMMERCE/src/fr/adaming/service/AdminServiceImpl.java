@@ -8,11 +8,17 @@ import javax.ejb.Stateful;
 
 import fr.adaming.dao.AdminDaoImpl;
 import fr.adaming.dao.IAdminDao;
+import fr.adaming.dao.IMagasinDao;
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Produit;
 
+/**
+ * 
+ * @author Vincent Bonillo & Anthony Josseaume
+ *@see IAdminService
+ */
 @Stateful
 public class AdminServiceImpl implements IAdminService{
 

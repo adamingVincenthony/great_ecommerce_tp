@@ -12,6 +12,12 @@ import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Produit;
 
+
+/**
+ * 
+ * @author Vincent Bonillo & Anthony Josseaume
+ *@see IAdminDao
+ */
 @Stateless
 public class AdminDaoImpl implements IAdminDao{
 
@@ -54,6 +60,11 @@ public class AdminDaoImpl implements IAdminDao{
 
 	@Override
 	public Produit modifierProduit(Produit p) {
+		Produit pTemp=em.find(Produit.class, p.getId_produit());
+		pTemp.setDesignation(p.getDesignation());
+		pTemp.setDescription(p.getDescription());
+		pTemp.setPrix(p.getPrix());
+		pTemp.setCategorieProduit(p.getCategorieProduit());
 		em.merge(p);
 		return null;
 	}

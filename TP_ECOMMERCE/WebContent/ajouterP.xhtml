@@ -56,7 +56,7 @@
 						<p:inputText styleClass="w3-input w3-border w3-sand"
 							value="#{adminMB.produit.prix}"></p:inputText>
 					</p>
-					<p:selectOneMenu id="console" styleClass="w3-green"
+					<p:selectOneMenu required="true" id="console" styleClass="w3-green"
 						value="#{adminMB.categorie.nomCategorie}">
 						<f:selectItem itemLabel="Categorie :" itemValue="" />
 						<f:selectItems value="#{adminMB.listeNomCat}" var="nCat"
